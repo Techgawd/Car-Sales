@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
 import AdditionalFeatures from './components/AdditionalFeatures';
@@ -45,4 +45,14 @@ const App = () => {
   );
 };
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state)
+  return {
+    addionalPrice: state.additionalPrice,
+    additionalFeatures: state.additionalFeatures,
+    car: state.car,
+    store: state.store,
+  }
+}
+
+export default connect()(App);
